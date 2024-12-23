@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 350px;
+            background-color: #e60982;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin:30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+
+        }
+
+        .input {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            outline: none;
+
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            color: #fff;
+            background-color: #077aaf;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }   
+
+
+    </style>
+    <h1>Test Box With Js</h1>
+    <form action="">
+        <input type="number" name="number" class="input" placeholder="Enter a number" required>
+        <input type="text" name="text" class="input" placeholder="Enter a text" required>
+        <select name="select" class="input" required>
+            <option value="Div">Div</option>
+            <option value="Section">Section</option>
+        </select>
+        <input type="Submit" value="Submit">
+        <div class="result"></div>
+    </form>
+    <script>
+        const number = document.querySelector('input[name="number"]');
+        const text = document.querySelector('input[name="text"]');
+        const select = document.querySelector('select[name="select"]');
+        const submit = document.querySelector('input[type="submit"]');
+        const form = document.querySelector('form');
+        const result = document.querySelector('.result');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+           result.innerHTML = "";
+           for (let i = 1; i <= number.value; i++) {
+            const div = document.createElement(select.value);
+            div.className = "box";
+            div.appendChild(document.createTextNode(text.value));
+            result.appendChild(div);    
+           }
+        })
+
+
+
+        
+    </script>
+</body>
+</html>
